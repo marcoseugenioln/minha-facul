@@ -24,7 +24,7 @@ def login():
 
         if database.user_exists(username, password):
             session['logged_in'] = True
-            return render_template('home.html')
+            return redirect(url_for('home'))
             
         else:
             flash('login inválido')
