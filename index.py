@@ -13,7 +13,7 @@ database = Database()
 
 database.create_users_table()
  
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
 
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
@@ -35,9 +35,25 @@ def login():
 def home():
     return render_template('home.html')
 
-@app.route("/register")
+@app.route("/register", methods=['GET', 'POST'])
 def register():
-    return render_template("register.html")
+
+    if (request.method == 'POST' 
+        and 'username' in request.form 
+        and 'password' in request.form
+        and 'city' in request.form
+        and 'state' in request.form):
+        
+        # Create variables for easy access
+        username = request.form['username']
+        password = request.form['password']
+        city = request.form['city']
+        state = request.form['state']
+
+        if database.insert_user(username, password, city, state):
+            return redirect(url_for('login'))
+    
+    return redirect(url_for('register'))
 
 if __name__ == '__main__':
     app.run(debug=True)

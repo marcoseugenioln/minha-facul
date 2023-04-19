@@ -1,6 +1,13 @@
 import sqlite3
+import logging
+
+logger = logging.getLogger('werkzeug')
+handler = logging.FileHandler('access.log')
+logger.addHandler(handler)
 
 class Database():
+
+    
 
     def __init__(self):
         print('starting database...')
@@ -31,3 +38,20 @@ class Database():
             return False
         
         return True
+    
+    def insert_user(self, username: str, password: str, city: str, state: str) -> bool:
+        
+        if len(username) > 20:
+            return False
+        elif len(password)> 20:
+            return False
+        elif len(city)> 20:
+            return False
+        elif len(state)> 20:
+            return False
+        
+        self.query.execute(f"INSERT INTO users(username, password, city, state) values ('{username}', '{password}', '{city}', '{state}')")
+        logger.info(self.query.err)
+        return True
+
+
