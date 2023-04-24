@@ -1,7 +1,12 @@
 from flask import Flask, redirect, url_for, request, render_template, Blueprint, flash, session, abort
 from flask import Flask
 from database import Database
+import logging
 import os
+
+logger = logging.getLogger('werkzeug')
+handler = logging.FileHandler('site-log.log')
+logger.addHandler(handler)
 
 app = Flask(__name__)
 
@@ -35,14 +40,9 @@ def login():
 def home():
     return render_template('home.html')
 
-@app.route("/register", methods=['GET', 'POST'])
+@app.route("/register", methods=['GET','POST'])
 def register():
-
-    if (request.method == 'POST' 
-        and 'username' in request.form 
-        and 'password' in request.form
-        and 'city' in request.form
-        and 'state' in request.form):
+    if (request.method == 'POST' and 'username' in request.form and 'password' in request.form and 'city' in request.form and 'state' in request.form):
         
         # Create variables for easy access
         username = request.form['username']
@@ -53,7 +53,7 @@ def register():
         if database.insert_user(username, password, city, state):
             return redirect(url_for('login'))
     
-    return redirect(url_for('register'))
+    return render_template('register.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

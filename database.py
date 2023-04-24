@@ -2,7 +2,7 @@ import sqlite3
 import logging
 
 logger = logging.getLogger('werkzeug')
-handler = logging.FileHandler('access.log')
+handler = logging.FileHandler('site-log.log')
 logger.addHandler(handler)
 
 class Database():
@@ -11,7 +11,7 @@ class Database():
 
     def __init__(self):
         print('starting database...')
-        connection = sqlite3.connect('database.db', check_same_thread=False)
+        connection = sqlite3.connect('database.db', check_same_thread=False, timeout=10)
         self.query = connection.cursor()
         
     def create_users_table(self):
@@ -50,8 +50,9 @@ class Database():
         elif len(state)> 20:
             return False
         
-        self.query.execute(f"INSERT INTO users(username, password, city, state) values ('{username}', '{password}', '{city}', '{state}')")
-        logger.info(self.query.err)
+        self.query.execute(f"INSERT INTO users(username, password, city, state) values ('{username}', '{password}', '{city}', '{state}');")
+        
+        logger.info(f"INSERT INTO users(username, password, city, state) values ('{username}', '{password}', '{city}', '{state}')")
         return True
 
 

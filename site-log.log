@@ -1,0 +1,179 @@
+ * Debugger is active!
+ * Debugger PIN: 361-389-393
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:37] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:41] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [20/Apr/2023 17:33:41] "[33mGET /style.css HTTP/1.1[0m" 404 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:43] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:44] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:49] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:50] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:50] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:50] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:50] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:50] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:50] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:50] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:50] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:50] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:50] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:50] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:50] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:50] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:50] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:50] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:50] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:50] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:50] "[32mGET /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:33:50] "[32mGET /register HTTP/1.1[0m" 302 -
+ * Debugger is active!
+ * Debugger PIN: 361-389-393
+ * Detected change in 'd:\\Repos\\univesp-projeto-integrador-01\\database.py', reloading
+ * Debugger is active!
+ * Debugger PIN: 361-389-393
+ * Detected change in 'd:\\Repos\\univesp-projeto-integrador-01\\database.py', reloading
+ * Debugger is active!
+ * Debugger PIN: 361-389-393
+ * Detected change in 'd:\\Repos\\univesp-projeto-integrador-01\\database.py', reloading
+ * Debugger is active!
+ * Debugger PIN: 361-389-393
+ * Detected change in 'd:\\Repos\\univesp-projeto-integrador-01\\database.py', reloading
+ * Debugger is active!
+ * Debugger PIN: 361-389-393
+127.0.0.1 - - [20/Apr/2023 17:52:43] "[33mGET /register HTTP/1.1[0m" 404 -
+127.0.0.1 - - [20/Apr/2023 17:52:48] "GET /registry HTTP/1.1" 200 -
+INSERT INTO users(username, password, city, state) values ('teste', 'teste', 'teste', 'teste')
+127.0.0.1 - - [20/Apr/2023 17:52:58] "[32mPOST /registry HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:52:58] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [20/Apr/2023 17:52:58] "[33mGET /style.css HTTP/1.1[0m" 404 -
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 361-389-393
+127.0.0.1 - - [20/Apr/2023 17:55:21] "[33mGET /register HTTP/1.1[0m" 404 -
+ * Detected change in 'd:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 361-389-393
+ * Detected change in 'd:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 361-389-393
+ * Detected change in 'd:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Restarting with stat
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger is active!
+ * Debugger PIN: 361-389-393
+ * Debugger PIN: 361-389-393
+127.0.0.1 - - [20/Apr/2023 17:57:06] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [20/Apr/2023 17:57:06] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [20/Apr/2023 17:57:13] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [20/Apr/2023 17:57:13] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [20/Apr/2023 17:57:13] "[33mGET /style.css HTTP/1.1[0m" 404 -
+127.0.0.1 - - [20/Apr/2023 17:57:13] "[33mGET /style.css HTTP/1.1[0m" 404 -
+127.0.0.1 - - [20/Apr/2023 17:57:15] "GET /register HTTP/1.1" 200 -
+127.0.0.1 - - [20/Apr/2023 17:57:15] "GET /register HTTP/1.1" 200 -
+INSERT INTO users(username, password, city, state) values ('teste', 'teste', 'teste', 'teste')
+INSERT INTO users(username, password, city, state) values ('teste', 'teste', 'teste', 'teste')
+127.0.0.1 - - [20/Apr/2023 17:57:52] "[32mPOST /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:57:52] "[32mPOST /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:57:52] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [20/Apr/2023 17:57:52] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [20/Apr/2023 17:57:52] "[33mGET /style.css HTTP/1.1[0m" 404 -
+127.0.0.1 - - [20/Apr/2023 17:57:52] "[33mGET /style.css HTTP/1.1[0m" 404 -
+ * Detected change in 'd:\\Repos\\univesp-projeto-integrador-01\\database.py', reloading
+ * Detected change in 'd:\\Repos\\univesp-projeto-integrador-01\\database.py', reloading
+ * Restarting with stat
+ * Restarting with stat
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger is active!
+ * Debugger PIN: 361-389-393
+ * Debugger PIN: 361-389-393
+127.0.0.1 - - [20/Apr/2023 17:59:41] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [20/Apr/2023 17:59:41] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [20/Apr/2023 17:59:41] "[33mGET /style.css HTTP/1.1[0m" 404 -
+127.0.0.1 - - [20/Apr/2023 17:59:41] "[33mGET /style.css HTTP/1.1[0m" 404 -
+127.0.0.1 - - [20/Apr/2023 17:59:43] "GET /register HTTP/1.1" 200 -
+127.0.0.1 - - [20/Apr/2023 17:59:43] "GET /register HTTP/1.1" 200 -
+INSERT INTO users(username, password, city, state) values ('teste', 'teste', 'teste', 'teste')
+INSERT INTO users(username, password, city, state) values ('teste', 'teste', 'teste', 'teste')
+127.0.0.1 - - [20/Apr/2023 17:59:55] "[32mPOST /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:59:55] "[32mPOST /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [20/Apr/2023 17:59:55] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [20/Apr/2023 17:59:55] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [20/Apr/2023 17:59:55] "[33mGET /style.css HTTP/1.1[0m" 404 -
+127.0.0.1 - - [20/Apr/2023 17:59:55] "[33mGET /style.css HTTP/1.1[0m" 404 -
