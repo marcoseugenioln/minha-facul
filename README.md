@@ -55,6 +55,7 @@ git add arquivo_Untracked
 git commit -a -m "Esplicação do que mudou"
 ```
 ### Salvar na github
+Precisa ser cadastrado como contribuinte do projeto
 ```
 git push -u troque_pelo_seu_nome troque_pelo_seu_nome  
 ```

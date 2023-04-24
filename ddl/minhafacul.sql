@@ -88,8 +88,7 @@ VALUES
 -- Cria dados de teste
 INSERT INTO USUARIO	(EMAIL, SENHA_SHA256, RECUPERA_SENHA, ADMINISTRADOR, CURSO_ID, LOCAL_TXT, LOCAL_LAT, LOCAL_LON)
 VALUES
-    ('eu@dot.com', '4d0282941aaf2d694ddaa24fca75e503c73ab16fff3884cac12f39f882bc60cb', 0, 0, 1,
-     'Rua Bertolino Cezário dos Santos, 70 - Bosque dos Eucaliptos, São José dos Campos - SP, Brasil', -23.244425936421923, -45.883607130512445);
+    ('eu@dot.com', '4d0282941aaf2d694ddaa24fca75e503c73ab16fff3884cac12f39f882bc60cb', 0, 0, 1, '', 0, 0);
 
 INSERT INTO CURSO (CURSO) VALUES
 	('Eixo Computação'),
