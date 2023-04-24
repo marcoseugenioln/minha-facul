@@ -25,3 +25,36 @@
 ```
 
 - Abrir o navegador e inserir  a url http://localhost:5000/
+
+## GIT
+Dicas de como usar o git:
+
+### Clonar o repositorio (dowload para trabalho)
+```
+git clone https://github.com/marcoseugenioln/univesp-projeto-integrador-01.git
+```
+
+### Criando a area de trabalho pessoal
+```
+git branch troque_pelo_seu_nome
+git checkout troque_pelo_seu_nome
+```
+### Adicionando conteúdo
+
+### Listar o que mudou
+```
+git status 
+```
+### Listar o que mudou
+```
+git add arquivo_Untracked
+```
+
+### Salvar trabalho local
+```
+git commit -a -m "Esplicação do que mudou"
+```
+### Salvar na github
+```
+git push -u troque_pelo_seu_nome troque_pelo_seu_nome  
+```
