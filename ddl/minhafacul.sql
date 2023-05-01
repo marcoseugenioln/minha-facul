@@ -81,6 +81,19 @@ VALUES
     ('root@root.com', '4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2', 0, 1, 0);
 
 
+-- HISTORICO_DET source
+
+CREATE VIEW HISTORICO_DET AS
+SELECT A.HISTORICO_ID, A.FACULDADE_ID, A.CURSO_ID, D.FACULADE, E.CURSO,	A.ANO, A.CANDIDATOS, A.VAGAS
+FROM HISTORICO AS A
+LEFT JOIN
+    FACULDADE AS D
+USING (FACULDADE_ID)
+LEFT JOIN
+    CURSO AS E
+USING (CURSO_ID);
+
+
 --#############################################################################
 --#    DADOS DE EXEMPLO PARA DESENVOLVIMENTO DA FERRAMENTA USAR COM CUIDADO!  #
 --#############################################################################
