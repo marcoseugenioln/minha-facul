@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <div class="tela">
+        <hr><h1>Perfil do Usuário</h1><hr>
+
+        <div class="alter_password">
+            <h3>Informações de Usuário</h3>
+            <b>email: </b>{{email[0]}}<br/>
+            <b>local: </b>{{local[0]}}<br/>
+            <br/>
+        </div> 
+        <hr>
+        <div class="alter_password">
+            <h3>Alterar senha</h3>
+            <form method="POST">
+                <br/>Nova Senha:
+                <br/><input type="password" name="password"/> <br/>
+                
+                <br/>Confirmar Nova Senha:
+                <br/><input type="password" name="password_c"/> <br/>
+                <br/>
+                <br/> <input type="submit" value="Confirmar"/>
+            </form>
+        </div> 
+        <br/><br/>
+        <hr>
+        <div class="alter_local">
+            <h3>Alterar endereço</h3> 
+            <form method="POST">
+                <br/>Rua:
+                <br/><input type="text" name="street"/> <br/>
+
+                <br/>Numero:
+                <br/><input type="text" name="number"/> <br/>
+
+                <br/>Bairro:
+                <br/><input type="text" name="nbh"/> <br/>
+
+                <br/>Cidade:
+                <br/><input type="text" name="city"/> <br/>
+
+                <br/>Estado:
+                <br/><input type="text" name="state"/> <br/>
+                <br/>
+                <br/> <input type="submit" value="Confirmar"/>
+            </form>
+        </div> 
+    </div>  
+    
+</body>
+</html>
