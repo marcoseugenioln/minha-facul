@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Administra&ccedil;&atilde; Minha Faculdade</title>
+	<style>
+		.container {
+			display: none;
+		}
+		.active {
+			display: block;
+		}
+        button.active {
+			font-weight: bold;
+			color: red;
+		}
+        button.btab {
+            width: 200px;
+        }
+	</style>
+</head>
+<body>
+    <table>
+        <td><button id="btn1" class="btab active" onclick="showSection(1)">Cursos</button></td>
+        <td><button id="btn2" class="btab" onclick="showSection(2)">Faculdades</button></td>
+        <td><button id="btn3" class="btab" onclick="showSection(3)">Hist&oacute;ricos</button></td>
+        <td><button id="btn4" class="btab" onclick="showSection(4)">Usu&aacute;ios</button></td>
+        <td><button id="btn5" class="btab" onclick="showSection(5)">Trocar senha</button></td>
+    </table>
+
+	<div id="section1" class="container active">
+		<h2>Cursos</h2>
+        <table>
+            {% for curso_id, curson in cursos %}
+            <tr>
+                <form action="/curso/U/{{ curso_id }}">
+                <td><input type="text" name="curson" value="{{ curson }}"></td>
+                <td><input type="submit" value="Atualizar" formmethod="post"></td>
+                </form>
+                <td><button onclick="apagar('curso', {{ curso_id }})">Apagar</button></td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <form action="/curso/I">
+                <td><input type="text" name="curson" value="" placeholder="Nome do curso"></td>
+                <td><input type="submit" value="Cadastrar" formmethod="post"></td>
+                <td></td>
+                </form>
+            </tr>
+        </table>
+	</div>
+
+	<div id="section2" class="container">
+		<h2>Faculdades</h2>
+        <table>
+            <tr><th>Faculdade</th><th>Local</th><th>Latitude</th><th>Longitude</th></tr>
+            {% for faculdade_id, faculaden, local_txt, local_lat, local_lon in faculdades %}
+                <tr>
+                <form action="/faculdade/U/{{ faculdade_id }}">
+                <td><input type="text" name="faculaden" value="{{ faculaden }}"></td>
+                <td><input type="text" name="local_txt" value="{{ local_txt }}"></td>
+                <td><input type="number" name="local_lat" value="{{ local_lat }}" step=".000001"></td>
+                <td><input type="number" name="local_lon" value="{{ local_lon }}" step=".000001"></td>
+                <td><input type="submit" value="Atualizar" formmethod="post"></td>
+                </form>
+                <td><button onclick="apagar('faculdade', {{ faculdade_id }})">Apagar</button></td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <form action="/faculdade/I">
+                <td><input type="text" name="faculaden" placeholder="Nomde da faculdade"></td>
+                <td><input type="text" name="local_txt" placeholder="Local"></td>
+                <td><input type="number" name="local_lat" placeholder="-23.18" step=".000001"></td>
+                <td><input type="number" name="local_lon" placeholder="-45.87" step=".000001"></td>
+                <td><input type="submit" value="Cadastrar" formmethod="post"></td>
+                </form>
+            </tr>
+        </table>
+	</div>
+
+	<div id="section3" class="container">
+		<h2>Hist&oacute;ricos</h2>
+        <table>
+            <tr><th>Faculdade</th><th>Curso</th><th>Ano</th><th>Candidatos</th><th>Vagas</th></tr>
+            {% for historico_id, faculade, curso, ano, candidatos, vagas in historico %}
+                <tr>
+                <form action="/historico/U/{{ historico_id }}">
+                <td><label>{{ faculade }}</label></td>
+                <td><label>{{ curso }}</label></td>
+                <td><input type="number" name="ano" value="{{ ano }}" step="1"></td>
+                <td><input type="number" name="candidatos" value="{{ candidatos }}" step="1"></td>
+                <td><input type="number" name="vagas" value="{{ vagas }}" step="1"></td>
+                <td><input type="submit" value="Atualizar" formmethod="post"></td>
+                </form>
+                <td><button onclick="apagar('historico', {{ historico_id }})">Apagar</button></td>
+                </tr>
+            {%  endfor %}
+        </table>
+	</div>
+
+	<div id="section4" class="container">
+		<h2>Usu&aacute;ios</h2>
+        <table>
+            <tr><th>E-Mail</th><th>Tipo</th></tr>
+            {% for usuario_id, email, administrador in usuarios %}
+                <tr>
+                <form action="/usuario/U/{{ usuario_id }}">
+                <td><label>{{ email }}</label></td>
+                    {% if administrador == 0 %}
+                        <td><label>Usuário padrão</label></td>
+                        <td><input type="submit" value="Fazer admin" formmethod="post"></td>
+                    {% else %}
+                        <td><label>Administrador</label></td>
+                        <td><input type="submit" value="Fazer padrão" formmethod="post"></td>
+                    {%  endif %}
+                </form>
+                <td><button onclick="apagar('usuario', {{ usuario_id }})">Apagar</button></td>
+                </tr>
+            {%  endfor %}
+        </table>
+	</div>
+
+	<div id="section5" class="container">
+		<h2>Troca de senha</h2>
+		<p>Falta integracao com troca de senha do MARCOS</p>
+	</div>
+
+	<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // código para ser executado assim que o HTML estiver pronto
+            //alert('O HTML está pronto!');
+            showSection({{ blk }})
+        });
+
+		function showSection(sectionId) {
+			var sections = document.getElementsByClassName("container");
+			for (var i = 0; i < sections.length; i++) {
+				 sections[i].classList.remove("active");
+			}
+			document.getElementById("section"+sectionId).classList.add("active");
+
+			var buttons = document.getElementsByClassName("btab");
+			for (var i = 0; i < buttons.length; i++) {
+				buttons[i].classList.remove("active");
+			}
+			document.getElementById("btn" + sectionId).classList.add("active");
+		}
+
+        function apagar(blk, id) {
+            lnk = "/" + blk + "/D/" + id
+            console.log('DATA:' + lnk);
+            location.href = lnk;
+        }
+	</script>
+</body>
+</html>
