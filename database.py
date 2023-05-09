@@ -7,30 +7,17 @@ logger.addHandler(handler)
 
 class Database():
 
+    def __init__(self):
+        logger.info('starting database connection')
+        connection = sqlite3.connect('minhafacul.db', check_same_thread=False, timeout=10)
+        self.query = connection.cursor()
+        logger.info('Database connected.')
+
     
 
-    def __init__(self):
-        print('starting database...')
-        connection = sqlite3.connect('database.db', check_same_thread=False, timeout=10)
-        self.query = connection.cursor()
-        
-    def create_users_table(self):
-        print('creating users tables...')
-        self.query.execute(
-            '''
-            CREATE TABLE IF NOT EXISTS 
-            users(
-                user_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
-                username VARCHAR(20), 
-                password VARCHAR(20), 
-                city  VARCHAR(20),
-                state  VARCHAR(20)
-            )
-            ''')
+    def user_exists(self, email: str, password: str) -> bool:
 
-    def user_exists(self, username: str, password: str) -> bool:
-
-        self.query.execute(f"SELECT * FROM users WHERE username == '{username}' AND password == '{password}'")
+        self.query.execute(f"SELECT * FROM USUARIO WHERE EMAIL == '{email}' AND SENHA_SHA256 == '{password}'")
 
         account = self.query.fetchone()
 
@@ -39,20 +26,18 @@ class Database():
         
         return True
     
-    def insert_user(self, username: str, password: str, city: str, state: str) -> bool:
+    def insert_user(self, email: str, password: str, local_txt: str) -> bool:
         
-        if len(username) > 20:
+        if len(email) > 300:
             return False
-        elif len(password)> 20:
+        elif len(password)> 64:
             return False
-        elif len(city)> 20:
+        elif len(password)> 300:
             return False
-        elif len(state)> 20:
-            return False
-        
-        self.query.execute(f"INSERT INTO users(username, password, city, state) values ('{username}', '{password}', '{city}', '{state}');")
-        
-        logger.info(f"INSERT INTO users(username, password, city, state) values ('{username}', '{password}', '{city}', '{state}')")
+                
+        self.query.execute(f"INSERT INTO USUARIO(EMAIL, SENHA_SHA256, LOCAL_TXT) values ('{email}', '{password}', '{local_txt}');")
+        logger.info(f"INSERT INTO USUARIO(EMAIL, SENHA_SHA256, LOCAL_TXT) values ('{email}', '{password}', '{local_txt}');")
+
         return True
 
 
