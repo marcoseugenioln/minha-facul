@@ -2337,3 +2337,377 @@ SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '4'
 SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '4'
 127.0.0.1 - - [09/May/2023 20:18:12] "POST /profile/4 HTTP/1.1" 200 -
 127.0.0.1 - - [09/May/2023 20:18:12] "POST /profile/4 HTTP/1.1" 200 -
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger is active!
+ * Debugger PIN: 119-026-518
+ * Debugger PIN: 119-026-518
+127.0.0.1 - - [09/May/2023 22:46:13] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:46:13] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:46:13] "[33mGET /style.css HTTP/1.1[0m" 404 -
+127.0.0.1 - - [09/May/2023 22:46:13] "[33mGET /style.css HTTP/1.1[0m" 404 -
+SELECT * FROM USUARIO WHERE EMAIL == 'marcos.eugenioln@gmail.com' AND SENHA_SHA256 == 'root'
+SELECT * FROM USUARIO WHERE EMAIL == 'marcos.eugenioln@gmail.com' AND SENHA_SHA256 == 'root'
+Login invalido
+Login invalido
+127.0.0.1 - - [09/May/2023 22:46:21] "POST /login HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:46:21] "POST /login HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:46:21] "[33mGET /style.css HTTP/1.1[0m" 404 -
+127.0.0.1 - - [09/May/2023 22:46:21] "[33mGET /style.css HTTP/1.1[0m" 404 -
+SELECT * FROM USUARIO WHERE EMAIL == 'marcos.eugenioln@gmail.com' AND SENHA_SHA256 == '123456'
+SELECT * FROM USUARIO WHERE EMAIL == 'marcos.eugenioln@gmail.com' AND SENHA_SHA256 == '123456'
+Login valido
+Login valido
+SELECT USUARIO_ID FROM USUARIO WHERE EMAIL == 'marcos.eugenioln@gmail.com' AND SENHA_SHA256 == '123456'
+SELECT USUARIO_ID FROM USUARIO WHERE EMAIL == 'marcos.eugenioln@gmail.com' AND SENHA_SHA256 == '123456'
+user_id:(3,)
+user_id:(3,)
+127.0.0.1 - - [09/May/2023 22:46:28] "[32mPOST /login HTTP/1.1[0m" 302 -
+127.0.0.1 - - [09/May/2023 22:46:28] "[32mPOST /login HTTP/1.1[0m" 302 -
+127.0.0.1 - - [09/May/2023 22:46:28] "GET /home/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:46:28] "GET /home/3 HTTP/1.1" 200 -
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 22:46:30] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:46:30] "GET /profile/3 HTTP/1.1" 200 -
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 22:46:45] "POST /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:46:45] "POST /profile/3 HTTP/1.1" 200 -
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger is active!
+ * Debugger PIN: 119-026-518
+ * Debugger PIN: 119-026-518
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger is active!
+ * Debugger PIN: 119-026-518
+ * Debugger PIN: 119-026-518
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Restarting with stat
+ * Restarting with stat
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger is active!
+ * Debugger PIN: 119-026-518
+ * Debugger PIN: 119-026-518
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 22:49:33] "POST /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:49:33] "POST /profile/3 HTTP/1.1" 200 -
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 22:50:05] "POST /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:50:05] "POST /profile/3 HTTP/1.1" 200 -
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 22:50:09] "POST /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:50:09] "POST /profile/3 HTTP/1.1" 200 -
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\database.py', reloading
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\database.py', reloading
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger is active!
+ * Debugger PIN: 119-026-518
+ * Debugger PIN: 119-026-518
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\database.py', reloading
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\database.py', reloading
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger is active!
+ * Debugger PIN: 119-026-518
+ * Debugger PIN: 119-026-518
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\database.py', reloading
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\database.py', reloading
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger is active!
+ * Debugger PIN: 119-026-518
+ * Debugger PIN: 119-026-518
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 22:51:20] "POST /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:51:20] "POST /profile/3 HTTP/1.1" 200 -
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 22:51:28] "POST /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:51:28] "POST /profile/3 HTTP/1.1" 200 -
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\database.py', reloading
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\database.py', reloading
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger is active!
+ * Debugger PIN: 119-026-518
+ * Debugger PIN: 119-026-518
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\database.py', reloading
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\database.py', reloading
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger is active!
+ * Debugger PIN: 119-026-518
+ * Debugger PIN: 119-026-518
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 22:52:20] "POST /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:52:20] "POST /profile/3 HTTP/1.1" 200 -
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 22:52:42] "POST /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:52:42] "POST /profile/3 HTTP/1.1" 200 -
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger is active!
+ * Debugger PIN: 119-026-518
+ * Debugger PIN: 119-026-518
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 22:54:02] "POST /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:54:02] "POST /profile/3 HTTP/1.1" 200 -
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 22:54:23] "POST /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:54:23] "POST /profile/3 HTTP/1.1" 200 -
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Restarting with stat
+ * Restarting with stat
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger is active!
+ * Debugger PIN: 119-026-518
+ * Debugger PIN: 119-026-518
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 22:55:30] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:55:30] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:56:11] "[35m[1mPOST /profile/3 HTTP/1.1[0m" 500 -
+127.0.0.1 - - [09/May/2023 22:56:11] "[35m[1mPOST /profile/3 HTTP/1.1[0m" 500 -
+127.0.0.1 - - [09/May/2023 22:56:12] "[36mGET /profile/3?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 22:56:12] "[36mGET /profile/3?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 22:56:12] "[36mGET /profile/3?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 22:56:12] "[36mGET /profile/3?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 22:56:12] "[36mGET /profile/3?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 22:56:12] "[36mGET /profile/3?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 22:56:12] "[36mGET /profile/3?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 22:56:12] "[36mGET /profile/3?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger is active!
+ * Debugger PIN: 119-026-518
+ * Debugger PIN: 119-026-518
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger is active!
+ * Debugger PIN: 119-026-518
+ * Debugger PIN: 119-026-518
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 22:56:54] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:56:54] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:57:09] "[35m[1mPOST /profile/3 HTTP/1.1[0m" 500 -
+127.0.0.1 - - [09/May/2023 22:57:09] "[35m[1mPOST /profile/3 HTTP/1.1[0m" 500 -
+127.0.0.1 - - [09/May/2023 22:57:10] "[36mGET /profile/3?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 22:57:10] "[36mGET /profile/3?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 22:57:10] "[36mGET /profile/3?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 22:57:10] "[36mGET /profile/3?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 22:57:10] "[36mGET /profile/3?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 22:57:10] "[36mGET /profile/3?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 22:57:10] "[36mGET /profile/3?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 22:57:10] "[36mGET /profile/3?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger is active!
+ * Debugger PIN: 119-026-518
+ * Debugger PIN: 119-026-518
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 22:58:47] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:58:47] "GET /profile/3 HTTP/1.1" 200 -
+UPDATE USUARIO SET LOCAL_TXT = 'Rua João Chagas do Nascimento, 1111 - Santa Luzia II, Caçapava - SP' WHERE USUARIO_ID == 3
+UPDATE USUARIO SET LOCAL_TXT = 'Rua João Chagas do Nascimento, 1111 - Santa Luzia II, Caçapava - SP' WHERE USUARIO_ID == 3
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 22:59:05] "POST /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 22:59:05] "POST /profile/3 HTTP/1.1" 200 -
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Detected change in 'D:\\Repos\\univesp-projeto-integrador-01\\index.py', reloading
+ * Restarting with stat
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger is active!
+ * Debugger PIN: 119-026-518
+ * Debugger PIN: 119-026-518
+UPDATE USUARIO SET LOCAL_TXT = 'Rua João Chagas do Nascimento, 1111 - Santa Luzia II, Caçapava - SP' WHERE USUARIO_ID == 3
+UPDATE USUARIO SET LOCAL_TXT = 'Rua João Chagas do Nascimento, 1111 - Santa Luzia II, Caçapava - SP' WHERE USUARIO_ID == 3
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 23:02:48] "POST /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:02:48] "POST /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:02:54] "GET /home/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:02:54] "GET /home/3 HTTP/1.1" 200 -
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 23:03:00] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:00] "GET /profile/3 HTTP/1.1" 200 -
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 23:03:15] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:15] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:23] "GET /home/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:23] "GET /home/3 HTTP/1.1" 200 -
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 23:03:28] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:28] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:29] "[35m[1mGET /busca/3 HTTP/1.1[0m" 500 -
+127.0.0.1 - - [09/May/2023 23:03:29] "[35m[1mGET /busca/3 HTTP/1.1[0m" 500 -
+127.0.0.1 - - [09/May/2023 23:03:29] "[36mGET /busca/3?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 23:03:29] "[36mGET /busca/3?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 23:03:29] "[36mGET /busca/3?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 23:03:29] "[36mGET /busca/3?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 23:03:29] "[36mGET /busca/3?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 23:03:29] "[36mGET /busca/3?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/May/2023 23:03:37] "GET /home/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:37] "GET /home/3 HTTP/1.1" 200 -
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 23:03:37] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:37] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:38] "GET /home/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:38] "GET /home/3 HTTP/1.1" 200 -
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 23:03:39] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:39] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:43] "GET /home/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:43] "GET /home/3 HTTP/1.1" 200 -
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 23:03:44] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:44] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:44] "GET /home/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:44] "GET /home/3 HTTP/1.1" 200 -
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 23:03:45] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:45] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:46] "GET /home/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:46] "GET /home/3 HTTP/1.1" 200 -
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 23:03:49] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:03:49] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:05:27] "GET /home/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:05:27] "GET /home/3 HTTP/1.1" 200 -
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 23:06:29] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:06:29] "GET /profile/3 HTTP/1.1" 200 -
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 23:07:03] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:07:03] "GET /profile/3 HTTP/1.1" 200 -
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '3'
+127.0.0.1 - - [09/May/2023 23:07:27] "GET /profile/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/May/2023 23:07:27] "GET /profile/3 HTTP/1.1" 200 -

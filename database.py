@@ -74,3 +74,8 @@ class Database():
     def alter_password(self, user_id, password):
         self.query.execute(f"UPDATE USUARIO SET SENHA_SHA256 = '{password}' WHERE USUARIO_ID == {user_id}")
         self.connection.commit()
+
+    def alter_local(self, user_id, local):
+        self.query.execute(f"UPDATE USUARIO SET LOCAL_TXT = '{local}' WHERE USUARIO_ID == {user_id}")
+        logger.info(f"UPDATE USUARIO SET LOCAL_TXT = '{local}' WHERE USUARIO_ID == {user_id}")
+        self.connection.commit()

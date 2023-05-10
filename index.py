@@ -230,10 +230,23 @@ def profile(user_id):
         password = request.form['password']
         database.alter_password(user_id, password)
 
+    if (request.method == 'POST' and 'street' in request.form and 'number' in request.form and 'nbh' in request.form and 'city' in request.form and 'state' in request.form):
+        
+        # Create variables for easy access
+        street = request.form['street']
+        number = request.form['number']
+        nbh = request.form['nbh']
+        city = request.form['city']
+        state = request.form['state']
+
+        local_txt = f"{street}, {number} - {nbh}, {city} - {state}"
+
+        database.alter_local(user_id, local_txt)
+
     email = database.get_user_email(user_id)
     local = database.get_user_local(user_id)
 
-    return render_template('profile.html', email = email, local = local)
+    return render_template('profile.html', user_id = user_id, email = email, local = local)
 
 
 if __name__ == '__main__':
