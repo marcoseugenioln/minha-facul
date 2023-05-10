@@ -46,23 +46,31 @@ def home(user_id):
 
 @app.route("/register", methods=['GET','POST'])
 def register():
-    if (request.method == 'POST' and 'email' in request.form and 'password' in request.form and 'street' in request.form and 'number' in request.form and 'nbh' in request.form and 'city' in request.form and 'state' in request.form):
+    if (request.method == 'POST' and 'email' in request.form and 'password' in request.form and 'password_c' in request.form and 'street' in request.form and 'number' in request.form and 'nbh' in request.form and 'city' in request.form and 'state' in request.form):
         
-        # Create variables for easy access
+        is_password_valid = True
+        is_email_valid = True
         email = request.form['email']
         password = request.form['password']
+        password_c = request.form['password_c']
         street = request.form['street']
         number = request.form['number']
         nbh = request.form['nbh']
         city = request.form['city']
         state = request.form['state']
 
+        if len(email) > 300:
+            is_email_valid = False
+
+        if not password == password_c:
+            is_password_valid = False
+
         local_txt = f"{street}, {number} - {nbh}, {city} - {state}"
 
         if database.insert_user(email, password, local_txt):
             return redirect(url_for('login'))
     
-    return render_template('register.html')
+    return render_template('register.html', is_password_valid = is_password_valid, is_email_valid = is_email_valid)
 
 def chord_length_sc(lon_1, lat_1, lon_2, lat_2):
     # https://en.wikipedia.org/wiki/Great-circle_distance ### From chord length
@@ -225,10 +233,11 @@ def usuario_upd(id):
 @app.route('/profile/<user_id>', methods=['GET', 'POST'])
 def profile(user_id):
 
+    if (request.method == 'POST' and 'email' in request.form and 'email_c' in request.form):
+        database.alter_email(user_id, request.form['email'])
+
     if (request.method == 'POST' and 'password' in request.form and 'password_c' in request.form):
-        
-        password = request.form['password']
-        database.alter_password(user_id, password)
+        database.alter_password(user_id, request.form['password'])
 
     if (request.method == 'POST' and 'street' in request.form and 'number' in request.form and 'nbh' in request.form and 'city' in request.form and 'state' in request.form):
         
@@ -247,7 +256,6 @@ def profile(user_id):
     local = database.get_user_local(user_id)
 
     return render_template('profile.html', user_id = user_id, email = email, local = local)
-
 
 if __name__ == '__main__':
     app.run(debug=True)
