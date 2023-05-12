@@ -5,17 +5,121 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <script type="module">
+        // This example adds a search box to a map, using the Google Place Autocomplete
+        // feature. People can enter geographical searches. The search box will return a
+        // pick list containing a mix of places and predicted search terms.
+        // This example requires the Places library. Include the libraries=places
+        // parameter when you first load the API. For example:
+        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+        function initAutocomplete() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: -33.8688, lng: 151.2195 },
+            zoom: 13,
+            mapTypeId: "roadmap",
+        });
+        // Create the search box and link it to the UI element.
+        const input = document.getElementById("pac-input");
+        const searchBox = new google.maps.places.SearchBox(input);
+
+        var lat = {{lat}}
+        var lng = {{lng}}
+
+        map.setCenter({lat:lat, lng:lng});
+
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener("bounds_changed", () => {
+            searchBox.setBounds(map.getBounds());
+        });
+
+        let markers = [];
+
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener("places_changed", () => {
+            const places = searchBox.getPlaces();
+
+            if (places.length == 0) {
+            return;
+            }
+
+            // Clear out the old markers.
+            markers.forEach((marker) => {
+            marker.setMap(null);
+            });
+            markers = [];
+
+            // For each place, get the icon, name and location.
+            const bounds = new google.maps.LatLngBounds();
+
+            places.forEach((place) => {
+            if (!place.geometry || !place.geometry.location) {
+                console.log("Returned place contains no geometry");
+                return;
+            }
+
+            const icon = {
+                url: place.icon,
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(25, 25),
+            };
+
+            // Create a marker for each place.
+            markers.push(
+                new google.maps.Marker({
+                map,
+                icon,
+                title: place.name,
+                position: place.geometry.location,
+                })
+            );
+            if (place.geometry.viewport) {
+                // Only geocodes have viewport.
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+            });
+            map.fitBounds(bounds);
+        });
+        }
+
+        window.initAutocomplete = initAutocomplete;
+
+    </script>
+
+    <style>
+        #map{
+            width: 500px;
+            height: 500px;
+        }
+
+        #pac-input{
+            width: 300px;
+        }
+
+        #curso_cb
+        {
+            width: 168px;
+            height: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="tela">
         <a href="/home/{{user_id}}" type="button">Home</a>
-        <a href="/busca/{{user_id}}" type="button">Realizar Busca</a><br/>
         <hr><h1>Perfil do Usuário</h1><hr>
 
         <div class="user_information">
             <h3>Informações de Usuário</h3>
-            <b>email: </b>{{email[0]}}<br/>
-            <b>local: </b>{{local[0]}}<br/>
+            <b>email: </b>{{email}}<br/>
+            <b>local: </b>{{local}}<br/>
+            <b>Curso: </b>{{courses[course - 1][1]}}<br/>
             <br/>
         </div> 
         <hr>
@@ -47,28 +151,37 @@
         </div> 
         <br/><br/>
         <hr>
+        <div class="alter_course">
+            <h3>Alterar Curso</h3> 
+            <form method="POST">
+                <select id="curso_cb" name="course">
+                    {% for id, nome in courses %}
+                        <option value="{{id}}">{{nome}}</option>
+                    {% endfor %}
+                </select>
+                <br/>
+                <br/> <input type="submit" value="Confirmar"/>
+            </form>
+        </div> 
+            
+        <hr>
+        <br/><br/>
         <div class="alter_local">
             <h3>Alterar endereço</h3> 
             <form method="POST">
-                <br/>Rua:
-                <br/><input type="text" name="street"/> <br/>
-
-                <br/>Numero:
-                <br/><input type="text" name="number"/> <br/>
-
-                <br/>Bairro:
-                <br/><input type="text" name="nbh"/> <br/>
-
-                <br/>Cidade:
-                <br/><input type="text" name="city"/> <br/>
-
-                <br/>Estado:
-                <br/><input type="text" name="state"/> <br/>
+                <input id="pac-input" class="controls" type="text" placeholder="Procurar Endereço" name = "local_txt"/>
+                <div id="map"></div>
+            
                 <br/>
                 <br/> <input type="submit" value="Confirmar"/>
             </form>
         </div> 
     </div>  
     <hr>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGVxQoVpwxbdrDaaXy4Ok6ao_MiURaIrU&callback=initAutocomplete&libraries=places&v=weekly"
+      defer
+    ></script>
 </body>
 </html>

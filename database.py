@@ -25,7 +25,7 @@ class Database():
         
         return True
     
-    def insert_user(self, email: str, password: str, local_txt: str) -> bool:
+    def insert_user(self, email: str, password: str, local_txt: str, latitude, longitude, course) -> bool:
         
         if len(email) > 300:
             return False
@@ -34,8 +34,8 @@ class Database():
         elif len(password)> 300:
             return False
                 
-        self.query.execute(f"INSERT OR IGNORE INTO USUARIO(EMAIL, SENHA_SHA256, LOCAL_TXT) values ('{email}', '{password}', '{local_txt}');")
-        logger.info(f"INSERT OR IGNORE INTO USUARIO(EMAIL, SENHA_SHA256, LOCAL_TXT) values ('{email}', '{password}', '{local_txt}');")
+        self.query.execute(f"INSERT OR IGNORE INTO USUARIO(EMAIL, SENHA_SHA256, LOCAL_TXT, LOCAL_LAT, LOCAL_LON, CURSO_ID) values ('{email}', '{password}', '{local_txt}', {latitude}, {longitude}, {course});")
+        logger.info(f"INSERT OR IGNORE INTO USUARIO(EMAIL, SENHA_SHA256, LOCAL_TXT, LOCAL_LAT, LOCAL_LON, CURSO_ID) values ('{email}', '{password}', '{local_txt}', {latitude}, {longitude}, {course});")
         self.connection.commit()
         
         return True
@@ -46,7 +46,7 @@ class Database():
         logger.info(f"SELECT LOCAL_TXT FROM USUARIO WHERE USUARIO_ID == '{user_id}'")
 
         email = self.query.fetchone()
-        return email
+        return email[0]
 
     def get_user_local(self, user_id: int) -> str:
 
@@ -58,7 +58,31 @@ class Database():
         if not local:
             return str()
 
-        return local
+        return local[0]
+    
+    def get_user_latitude(self, user_id: int) -> str:
+
+        self.query.execute(f"SELECT LOCAL_LAT FROM USUARIO WHERE USUARIO_ID == '{user_id}'")
+        logger.info(f"SELECT LOCAL_LAT FROM USUARIO WHERE USUARIO_ID == '{user_id}'")
+
+        latitude = self.query.fetchone()
+        return latitude[0]
+    
+    def get_user_longitude(self, user_id: int) -> str:
+
+        self.query.execute(f"SELECT LOCAL_LON FROM USUARIO WHERE USUARIO_ID == '{user_id}'")
+        logger.info(f"SELECT LOCAL_LON FROM USUARIO WHERE USUARIO_ID == '{user_id}'")
+
+        longitude = self.query.fetchone()
+        return longitude[0]
+    
+    def get_user_course(self, user_id: int) -> str:
+
+        self.query.execute(f"SELECT CURSO_ID FROM USUARIO WHERE USUARIO_ID == '{user_id}'")
+        logger.info(f"SELECT CURSO_ID FROM USUARIO WHERE USUARIO_ID == '{user_id}'")
+
+        course_id = self.query.fetchone()
+        return course_id[0]
     
     def get_user_id(self, email: str, password: str):
 
@@ -85,3 +109,22 @@ class Database():
         self.query.execute(f"UPDATE USUARIO SET EMAIL = '{email}' WHERE USUARIO_ID == {user_id}")
         logger.info(f"UPDATE USUARIO SET EMAIL = '{email}' WHERE USUARIO_ID == {user_id}")
         self.connection.commit()
+
+    def alter_course(self, user_id, course_id):
+        self.query.execute(f"UPDATE USUARIO SET CURSO_ID = '{course_id}' WHERE USUARIO_ID == {user_id}")
+        logger.info(f"UPDATE USUARIO SET CURSO_ID = '{course_id}' WHERE USUARIO_ID == {user_id}")
+        self.connection.commit()
+
+    def is_admin(self, user_id):
+        self.query.execute(f"SELECT ADMINISTRADOR FROM USUARIO WHERE USUARIO_ID == {user_id}")
+        logger.info(f"SELECT ADMINISTRADOR FROM USUARIO WHERE USUARIO_ID == {user_id}")
+
+        is_admin = self.query.fetchone()
+        
+        return is_admin[0]
+
+    def get_courses(self):
+        self.query.execute("SELECT CURSO_ID, CURSO FROM CURSO")
+        cursos = self.query.fetchall()
+
+        return cursos
