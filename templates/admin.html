@@ -19,7 +19,13 @@
 	</style>
 </head>
 <body>
-    <a href="/home/{{user_id}}" type="button">Home</a>
+    <a href="/login" type="button">logout</a>
+    <a href="/busca/{{user_id}}" type="button">Realizar Busca</a>
+    <a href="/profile/{{user_id}}" type="button">Perfil do Usuário</a> 
+    <a href="/admin/1/{{user_id}}" type="button">Configurações de Administrador</a><br/>
+
+    <hr><h1>Configurações de Administrador</h1><hr>
+
     <table>
         <td><button id="btn1" class="btab active" onclick="showSection(1)">Cursos</button></td>
         <td><button id="btn2" class="btab" onclick="showSection(2)">Faculdades</button></td>

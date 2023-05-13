@@ -22,8 +22,15 @@ site = Blueprint('site', __name__, template_folder='templates')
 
 database = Database()
 
+ 
+@app.route("/")
+def index():
+        return redirect(url_for(f'login'))
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+
+    is_login_valid = True
 
     if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
         
@@ -32,20 +39,17 @@ def login():
         password = request.form['password']
 
         if database.user_exists(username, password):
+            user_id = database.get_user_id(username, password)
 
-            logger.info("Login valido")
-            session['logged_in'] = True
-            return redirect(url_for(f'home', user_id = database.get_user_id(username, password)))
-            
+            if database.is_admin(user_id):
+                return redirect(url_for(f'admin', blk = 1, user_id = user_id))
+                
+            else:
+                return redirect(url_for(f'busca', user_id = user_id))
         else:
-            logger.info("Login invalido")
+            is_login_valid = False
     
-    return render_template('login.html')
- 
-@app.route("/home/<user_id>")
-def home(user_id):
-        
-        return render_template('home.html', user_id = user_id, is_admin = database.is_admin(user_id))
+    return render_template('login.html', is_login_valid = is_login_valid)
 
 @app.route("/register", methods=['GET','POST'])
 def register():
@@ -64,21 +68,20 @@ def register():
         local_txt = request.form['local_txt']
         course = request.form['course']
 
-        if len(email) > 300:
-            is_email_valid = False
-
-        if not password == password_c:
-            is_password_valid = False
-
         response = requests.get(f'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAGVxQoVpwxbdrDaaXy4Ok6ao_MiURaIrU&address={urllib.parse.quote(local_txt, safe="")}')
-
         location = response.json()['results'][0]['geometry']['location']
-
         latitude = location['lat']
         longitude = location['lng']
 
-        if database.insert_user(email, password, local_txt, latitude, longitude, course):
+        if database.insert_user(email, password, password_c, local_txt, latitude, longitude, course):
             return redirect(url_for('login'))
+        else:
+            if len(email) > 300:
+                is_email_valid = False
+            elif len(password)> 64:
+                is_password_valid = False
+            elif password_c != password:
+                is_password_valid = False                
     
     return render_template('register.html', is_password_valid = is_password_valid, is_email_valid = is_email_valid, courses=courses)
 
@@ -135,13 +138,12 @@ def busca(user_id):
     else:
         comparativo = None
 
-    return render_template('busca.html', comparativo=comparativo, userdat=userdat, cursos=cursos)
+    return render_template('busca.html', user_id = user_id, is_admin = database.is_admin(user_id), comparativo=comparativo, userdat=userdat, cursos=cursos)
 
 
 @app.route('/admin/<blk>/<user_id>', methods=['GET', 'POST'])
 def admin(blk, user_id):
     #TODO: checar se o usuário está logado e é administrador!
-
     conn = sqlite3.connect('minhafacul.db')
     c = conn.cursor()
 
@@ -267,7 +269,8 @@ def profile(user_id):
         lat = database.get_user_latitude(user_id), 
         lng = database.get_user_longitude(user_id), 
         course = database.get_user_course(user_id),
-        courses=database.get_courses()
+        courses = database.get_courses(),
+        is_admin = database.is_admin(user_id)
         )
 
 if __name__ == '__main__':

@@ -1,7 +1,6 @@
 -- SQL de criação do banco de dados para a ferramenta minhaFacul
 -- Alexandre CASTILHO 21/04/2023
 -- FACULDADE definition
-
 CREATE TABLE FACULDADE (
 	FACULDADE_ID INTEGER PRIMARY KEY AUTOINCREMENT,
 	FACULADE TEXT(300),
@@ -11,9 +10,7 @@ CREATE TABLE FACULDADE (
 	CONSTRAINT FACULDADE_UN UNIQUE (FACULADE)
 );
 
-
 -- CURSO definition
-
 CREATE TABLE CURSO (
 	CURSO_ID INTEGER PRIMARY KEY AUTOINCREMENT,
 	CURSO TEXT(300),
@@ -22,7 +19,6 @@ CREATE TABLE CURSO (
 
 
 -- USUARIO definition
-
 CREATE TABLE USUARIO (
 	USUARIO_ID INTEGER PRIMARY KEY AUTOINCREMENT,
 	EMAIL TEXT(300),
@@ -39,7 +35,6 @@ CREATE TABLE USUARIO (
 
 
 -- HISTORICO definition
-
 CREATE TABLE HISTORICO (
 	HISTORICO_ID INTEGER PRIMARY KEY AUTOINCREMENT,
 	FACULDADE_ID INTEGER,
@@ -54,7 +49,6 @@ CREATE TABLE HISTORICO (
 
 
 -- Comparativo entre faculdades para o ano atual e ultimos dois
-
 CREATE VIEW COMPARATIVO AS
 SELECT A.FACULDADE_ID, A.CURSO_ID, D.FACULADE, E.CURSO, D.LOCAL_LAT, D.LOCAL_LON,
 	CAST(CAST(A.CANDIDATOS AS REAL) / CAST(A.VAGAS AS REAL) AS REAL(10,2)) AS CPV,
@@ -75,14 +69,6 @@ LEFT JOIN
     CURSO AS E
 USING (CURSO_ID);
 
--- Cria um usuário administrador
-INSERT INTO USUARIO	(EMAIL, SENHA_SHA256, RECUPERA_SENHA, ADMINISTRADOR, CURSO_ID)
-VALUES
-    ('root@root.com', '4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2', 0, 1, 0);
-
-
--- HISTORICO_DET source
-
 CREATE VIEW HISTORICO_DET AS
 SELECT A.HISTORICO_ID, A.FACULDADE_ID, A.CURSO_ID, D.FACULADE, E.CURSO,	A.ANO, A.CANDIDATOS, A.VAGAS
 FROM HISTORICO AS A
@@ -93,60 +79,23 @@ LEFT JOIN
     CURSO AS E
 USING (CURSO_ID);
 
+--########################################################
+--#    DADOS DE "REAIS" PARA PRODUÇÃO USAR COM CUIDADO!  #
+--########################################################
 
---#############################################################################
---#    DADOS DE EXEMPLO PARA DESENVOLVIMENTO DA FERRAMENTA USAR COM CUIDADO!  #
---#############################################################################
-
--- Cria dados de teste
 INSERT INTO USUARIO	(EMAIL, SENHA_SHA256, RECUPERA_SENHA, ADMINISTRADOR, CURSO_ID, LOCAL_TXT, LOCAL_LAT, LOCAL_LON)
 VALUES
-    ('eu@dot.com', '4d0282941aaf2d694ddaa24fca75e503c73ab16fff3884cac12f39f882bc60cb', 0, 0, 1, '', 0, 0);
+    ('eu@dot.com', 'root', 0, 0, 1, '', 0, 0);
+
+-- Cria um usuário administrador
+INSERT INTO USUARIO	(EMAIL, SENHA_SHA256, RECUPERA_SENHA, ADMINISTRADOR, CURSO_ID)
+VALUES
+    ('root@root.com', 'root', 0, 1, 0);
 
 INSERT INTO CURSO (CURSO) VALUES
 	('Eixo Computação'),
 	('Eixo Licenciaturas'),
 	('Eixo de Negócios e Produção');
-
-INSERT INTO FACULDADE (FACULADE, LOCAL_TXT, LOCAL_LAT, LOCAL_LON) VALUES
-	('Faculdade 1', 'Cacapava', -23.1121, -45.7084),
-	('Faculdade 2', 'Taubate', -23.0300, -45.5655),
-	('Faculdade 3', 'Sao Jose dos campos', -23.1843, -45.8651);
-
-INSERT INTO HISTORICO (FACULDADE_ID, CURSO_ID, ANO, VAGAS, CANDIDATOS)
-VALUES
-	(1, 1, 2023, 10, 100),
-	(1, 1, 2022, 20, 200),
-	(1, 1, 2021, 30, 300),
-	(1, 2, 2023, 10, 6),
-	(1, 2, 2022, 20, 24),
-	(1, 2, 2021, 30, 31),
-	(1, 3, 2023, 10, 19),
-	(1, 3, 2022, 20, 9),
-	(1, 3, 2021, 30, 14),
-	(2, 1, 2023, 20, 101),
-	(2, 1, 2022, 40, 201),
-	(2, 1, 2021, 60, 301),
-	(2, 2, 2023, 20, 15),
-	(2, 2, 2022, 40, 38),
-	(2, 2, 2021, 60, 56),
-	(2, 3, 2023, 20, 17),
-	(2, 3, 2022, 40, 40),
-	(2, 3, 2021, 60, 99),
-	(3, 1, 2023, 40, 102),
-	(3, 1, 2022, 80, 202),
-	(3, 1, 2021, 120, 302),
-	(3, 2, 2023, 40, 35),
-	(3, 2, 2022, 80, 84),
-	(3, 2, 2021, 120, 116),
-	(3, 3, 2023, 40, 79),
-	(3, 3, 2022, 80, 16),
-	(3, 3, 2021, 120, 235);
-
-
---########################################################
---#    DADOS DE "REAIS" PARA PRODUÇÃO USAR COM CUIDADO!  #
---########################################################
 
 INSERT INTO FACULDADE
 (FACULADE, LOCAL_TXT, LOCAL_LAT, LOCAL_LON)
@@ -173,15 +122,15 @@ VALUES
 (7, 1, 2023, 50, 97),
 (7, 2, 2023, 50, 42),
 (7, 3, 2023, 50, 55),
-(8, 1, 2023, 10, 7),
-(8, 2, 2023, 10, 30),
-(8, 3, 2023, 10, 13),
-(9, 1, 2023, 30, 91),
-(9, 2, 2023, 30, 77),
-(9, 3, 2023, 30, 83),
-(10, 1, 2023, 15, 42),
-(10, 2, 2023, 15, 26),
-(10, 3, 2023, 15, 32),
+-- (8, 1, 2023, 10, 7),
+-- (8, 2, 2023, 10, 30),
+-- (8, 3, 2023, 10, 13),
+-- (9, 1, 2023, 30, 91),
+-- (9, 2, 2023, 30, 77),
+-- (9, 3, 2023, 30, 83),
+-- (10, 1, 2023, 15, 42),
+-- (10, 2, 2023, 15, 26),
+-- (10, 3, 2023, 15, 32),
 (4, 1, 2022, 35, 73),
 (4, 2, 2022, 35, 90),
 (4, 3, 2022, 35, 107),
@@ -194,15 +143,15 @@ VALUES
 (7, 1, 2022, 100, 195),
 (7, 2, 2022, 100, 110),
 (7, 3, 2022, 100, 147),
-(8, 1, 2022, 10, 15),
-(8, 2, 2022, 10, 24),
-(8, 3, 2022, 10, 15),
-(9, 1, 2022, 100, 319),
-(9, 2, 2022, 100, 366),
-(9, 3, 2022, 100, 372),
-(10, 1, 2022, 15, 57),
-(10, 2, 2022, 15, 80),
-(10, 3, 2022, 15, 69),
+-- (8, 1, 2022, 10, 15),
+-- (8, 2, 2022, 10, 24),
+-- (8, 3, 2022, 10, 15),
+-- (9, 1, 2022, 100, 319),
+-- (9, 2, 2022, 100, 366),
+-- (9, 3, 2022, 100, 372),
+-- (10, 1, 2022, 15, 57),
+-- (10, 2, 2022, 15, 80),
+-- (10, 3, 2022, 15, 69),
 (4, 1, 2021, 24, 82),
 (4, 2, 2021, 24, 87),
 (5, 1, 2021, 32, 149),
@@ -211,7 +160,7 @@ VALUES
 (6, 2, 2021, 32, 371),
 (7, 1, 2021, 32, 168),
 (7, 2, 2021, 32, 100),
-(9, 1, 2021, 8, 131),
-(9, 2, 2021, 8, 134),
-(10, 1, 2021, 16, 68),
-(10, 2, 2021, 16, 80);
+-- (9, 1, 2021, 8, 131),
+-- (9, 2, 2021, 8, 134),
+-- (10, 1, 2021, 16, 68),
+-- (10, 2, 2021, 16, 80);

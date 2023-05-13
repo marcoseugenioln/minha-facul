@@ -102,6 +102,11 @@
             width: 168px;
             height: 20px;
         }
+
+        .invalid{
+            color:red;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -111,29 +116,35 @@
     <div class="tema">
         <div class="int">
             <form method="POST">
+                
+                <br/>Email:
+                <br/><input type="text" name="email"/> <br/>
+                {% if not is_email_valid %}
+                    <p class="invalid"> Email inválido </p>
+                {% endif %}
 
-            <br/>Email:
-            <br/><input type="text" name="email"/> <br/>
-            
-            <br/>Senha:
-            <br/><input type="password" name="password"/> <br/>
-            
-            <br/>Confirmar Senha:
-            <br/><input type="password" name="password_c"/> <br/>
-
-            <br/>Selecionar Curso:<br/>
-            <select id="curso_cb" name="course">
-                {% for id, nome in courses %}
-                    <option value="{{id}}">{{nome}}</option>
-			    {% endfor %}
-            </select>
-            <br/>
-            
-            <br/>Endereço:
-            <input id="pac-input" class="controls" type="text" placeholder="Procurar Endereço" name = "local_txt"/>
-            <div id="map"></div>
-            
-            <br/> <input type="submit" value="Entrar"/>
+                <br/>Senha:
+                <br/><input type="password" name="password"/> <br/>
+                
+                <br/>Confirmar Senha:
+                <br/><input type="password" name="password_c"/> <br/>
+                {% if not is_password_valid %}
+                    <p class="invalid"> Senha inválida </p>
+                {% endif %}
+                
+                <br/>Selecionar Curso:<br/>
+                <select id="curso_cb" name="course">
+                    {% for id, nome in courses %}
+                        <option value="{{id}}">{{nome}}</option>
+                    {% endfor %}
+                </select>
+                <br/>
+                
+                <br/>Endereço:
+                <input id="pac-input" class="controls" type="text" placeholder="Procurar Endereço" name = "local_txt"/>
+                <div id="map"></div>
+                
+                <br/> <input type="submit" value="Entrar"/>
             </form>
         </div>
     </div>  

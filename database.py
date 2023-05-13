@@ -25,13 +25,15 @@ class Database():
         
         return True
     
-    def insert_user(self, email: str, password: str, local_txt: str, latitude, longitude, course) -> bool:
+    def insert_user(self, email: str, password: str, password_c: str, local_txt: str, latitude, longitude, course) -> bool:
         
         if len(email) > 300:
             return False
         elif len(password)> 64:
             return False
-        elif len(password)> 300:
+        elif password_c != password:
+            return False
+        elif len(local_txt)> 300:
             return False
                 
         self.query.execute(f"INSERT OR IGNORE INTO USUARIO(EMAIL, SENHA_SHA256, LOCAL_TXT, LOCAL_LAT, LOCAL_LON, CURSO_ID) values ('{email}', '{password}', '{local_txt}', {latitude}, {longitude}, {course});")

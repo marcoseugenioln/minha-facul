@@ -112,7 +112,12 @@
 </head>
 <body>
     <div class="tela">
-        <a href="/home/{{user_id}}" type="button">Home</a>
+        <a href="/login" type="button">logout</a>
+        <a href="/busca/{{user_id}}" type="button">Realizar Busca</a>
+        <a href="/profile/{{user_id}}" type="button">Perfil do Usuário</a> 
+        {% if is_admin == 1 %}
+            <a href="/admin/1/{{user_id}}" type="button">Configurações de Administrador</a><br/>
+        {% endif %}
         <hr><h1>Perfil do Usuário</h1><hr>
 
         <div class="user_information">
@@ -163,9 +168,8 @@
                 <br/> <input type="submit" value="Confirmar"/>
             </form>
         </div> 
-            
-        <hr>
         <br/><br/>
+        <hr>
         <div class="alter_local">
             <h3>Alterar endereço</h3> 
             <form method="POST">

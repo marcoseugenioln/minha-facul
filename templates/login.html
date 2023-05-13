@@ -1,30 +1,48 @@
 <html>  
     <head> 
         <title> Login </title> 
-        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <style>
+            #invalid-login{
+                color:red;
+                font-size: 14px;
+            }
+
+            #user-registered{
+                color:green;
+                font-size: 14px;
+            }
+        </style>
     </head>
 
     <body>
         <hr><h1>LOGIN</h1><hr>
+        {% if not is_login_valid %}
+            <p id="invalid-login"> Login inválido </p>
+        {% endif %}
+        {% if user_registered %}
+            <p id="user-registered"> Usuário registrado </p>
+        {% endif %}
 
         <div class="tema">
-        <div class="int">
-        <form method="POST">
-            
-        <br/>Email:
-        <br/><input type="text" name="email"/> 
+            <div class="int">
 
-        <br/>Senha:
-        <br/><input type="password" name="password"/> <br/>
+                <form method="POST">
+                    
+                    <br/>Email:
+                    <br/><input type="text" name="email"/> 
 
-        <br/><input type="checkbox" name="lembrar-me" value="lembrar-me">Lembrar-me<br><br/>
-        <br/><input type="submit" value="Entrar"/> <br/>
+                    <br/>Senha:
+                    <br/><input type="password" name="password"/> <br/>
 
-        <br/><a type="submit"value="Registrar-se"></a> 
-        <a href="/register" type="button">Registrar-se</a> <br/>
+                    <br/><input type="checkbox" name="lembrar-me" value="lembrar-me">Lembrar-me<br><br/>
+                    <br/><input type="submit" value="Entrar"/> <br/>
 
-    </form>
-        </div>
+                    <br/><a type="submit"value="Registrar-se"></a> 
+                    <a href="/register" type="button">Registrar-se</a> <br/>
+
+                </form>
+
+            </div>
         </div>  
     </body>
 
