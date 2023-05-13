@@ -146,8 +146,7 @@
       html,
       body {
         height: 100%;
-        margin: 0;
-        padding: 0;
+
       }
 
       #description {
@@ -222,6 +221,14 @@
     </style>
   </head>
   <body>
+    <a href="/login" type="button">logout</a>
+    <a href="/busca/{{user_id}}" type="button">Realizar Busca</a>
+    <a href="/profile/{{user_id}}" type="button">Perfil do Usuário</a> 
+    {% if is_admin == 1 %}
+        <a href="/admin/1/{{user_id}}" type="button">Configurações de Administrador</a><br/>
+    {% endif %}
+
+    <hr/>
     <div class="pac-card" id="pac-card">
       <div>
         <div id="title">A partir do meu endere&ccedil;o localize os cursos</div>
@@ -263,7 +270,7 @@
     </div>
 
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCS5n5wsjcOjXwzg5NzLlht8xFfogGj90A&callback=initMap&libraries=places&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGVxQoVpwxbdrDaaXy4Ok6ao_MiURaIrU&callback=initMap&libraries=places&v=weekly"
       defer
     ></script>
   </body>

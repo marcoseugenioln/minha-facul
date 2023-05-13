@@ -5,6 +5,8 @@ import logging
 import os
 import math
 import sqlite3
+import requests
+import urllib.parse
 
 logger = logging.getLogger('werkzeug')
 handler = logging.FileHandler('site-log.log')
@@ -20,8 +22,15 @@ site = Blueprint('site', __name__, template_folder='templates')
 
 database = Database()
 
+ 
+@app.route("/")
+def index():
+        return redirect(url_for(f'login'))
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+
+    is_login_valid = True
 
     if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
         
@@ -30,47 +39,51 @@ def login():
         password = request.form['password']
 
         if database.user_exists(username, password):
+            user_id = database.get_user_id(username, password)
 
-            logger.info("Login valido")
-            session['logged_in'] = True
-            return redirect(url_for(f'home', user_id = database.get_user_id(username, password)))
-            
+            if database.is_admin(user_id):
+                return redirect(url_for(f'admin', blk = 1, user_id = user_id))
+                
+            else:
+                return redirect(url_for(f'busca', user_id = user_id))
         else:
-            logger.info("Login invalido")
+            is_login_valid = False
     
-    return render_template('login.html')
- 
-@app.route("/home/<user_id>")
-def home(user_id):
-        return render_template('home.html', user_id = user_id)
+    return render_template('login.html', is_login_valid = is_login_valid)
 
 @app.route("/register", methods=['GET','POST'])
 def register():
-    if (request.method == 'POST' and 'email' in request.form and 'password' in request.form and 'password_c' in request.form and 'street' in request.form and 'number' in request.form and 'nbh' in request.form and 'city' in request.form and 'state' in request.form):
+
+    is_password_valid = True
+    is_email_valid = True
+
+    courses = database.get_courses()
+    logger.info(courses)
+
+    if (request.method == 'POST' and 'email' in request.form and 'password' in request.form and 'password_c' in request.form and 'local_txt' in request.form and 'course' in request.form):
         
-        is_password_valid = True
-        is_email_valid = True
         email = request.form['email']
         password = request.form['password']
         password_c = request.form['password_c']
-        street = request.form['street']
-        number = request.form['number']
-        nbh = request.form['nbh']
-        city = request.form['city']
-        state = request.form['state']
+        local_txt = request.form['local_txt']
+        course = request.form['course']
 
-        if len(email) > 300:
-            is_email_valid = False
+        response = requests.get(f'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAGVxQoVpwxbdrDaaXy4Ok6ao_MiURaIrU&address={urllib.parse.quote(local_txt, safe="")}')
+        location = response.json()['results'][0]['geometry']['location']
+        latitude = location['lat']
+        longitude = location['lng']
 
-        if not password == password_c:
-            is_password_valid = False
-
-        local_txt = f"{street}, {number} - {nbh}, {city} - {state}"
-
-        if database.insert_user(email, password, local_txt):
+        if database.insert_user(email, password, password_c, local_txt, latitude, longitude, course):
             return redirect(url_for('login'))
+        else:
+            if len(email) > 300:
+                is_email_valid = False
+            elif len(password)> 64:
+                is_password_valid = False
+            elif password_c != password:
+                is_password_valid = False                
     
-    return render_template('register.html', is_password_valid = is_password_valid, is_email_valid = is_email_valid)
+    return render_template('register.html', is_password_valid = is_password_valid, is_email_valid = is_email_valid, courses=courses)
 
 def chord_length_sc(lon_1, lat_1, lon_2, lat_2):
     # https://en.wikipedia.org/wiki/Great-circle_distance ### From chord length
@@ -125,13 +138,12 @@ def busca(user_id):
     else:
         comparativo = None
 
-    return render_template('busca.html', comparativo=comparativo, userdat=userdat, cursos=cursos)
+    return render_template('busca.html', user_id = user_id, is_admin = database.is_admin(user_id), comparativo=comparativo, userdat=userdat, cursos=cursos)
 
 
-@app.route('/admin/<blk>', methods=['GET', 'POST'])
-def admin(blk):
+@app.route('/admin/<blk>/<user_id>', methods=['GET', 'POST'])
+def admin(blk, user_id):
     #TODO: checar se o usuário está logado e é administrador!
-
     conn = sqlite3.connect('minhafacul.db')
     c = conn.cursor()
 
@@ -147,7 +159,7 @@ def admin(blk):
     c.execute("SELECT USUARIO_ID, EMAIL, ADMINISTRADOR FROM USUARIO ORDER BY EMAIL")
     usuarios = c.fetchall()
 
-    return render_template('admin.html', cursos=cursos, faculdades=faculdades, usuarios=usuarios, historico=historico, blk=blk)
+    return render_template('admin.html', cursos=cursos, faculdades=faculdades, usuarios=usuarios, historico=historico, blk=blk, user_id=user_id)
 
 @app.route('/curso/I', methods=['GET', 'POST'])
 def curso_add():
@@ -188,7 +200,6 @@ def faculdade_del(id):
     conn.commit()
     return redirect(url_for('admin', blk=2))
 
-
 @app.route('/faculdade/U/<id>', methods=['GET', 'POST'])
 def faculdade_upd(id):
     conn = sqlite3.connect('minhafacul.db')
@@ -196,7 +207,6 @@ def faculdade_upd(id):
                  (request.form['faculaden'], request.form['local_txt'], request.form['local_lat'], request.form['local_lon'], id))
     conn.commit()
     return redirect(url_for('admin', blk=2))
-
 
 @app.route('/historico/D/<id>', methods=['GET', 'POST'])
 def historico_del(id):
@@ -239,23 +249,29 @@ def profile(user_id):
     if (request.method == 'POST' and 'password' in request.form and 'password_c' in request.form):
         database.alter_password(user_id, request.form['password'])
 
-    if (request.method == 'POST' and 'street' in request.form and 'number' in request.form and 'nbh' in request.form and 'city' in request.form and 'state' in request.form):
-        
-        # Create variables for easy access
-        street = request.form['street']
-        number = request.form['number']
-        nbh = request.form['nbh']
-        city = request.form['city']
-        state = request.form['state']
+    if (request.method == 'POST' and 'course' in request.form):
+        database.alter_course(user_id, request.form['course'])
 
-        local_txt = f"{street}, {number} - {nbh}, {city} - {state}"
+    if (request.method == 'POST' and 'local_txt' in request.form):
+
+        local_txt = request.form['local_txt']
 
         database.alter_local(user_id, local_txt)
 
     email = database.get_user_email(user_id)
     local = database.get_user_local(user_id)
 
-    return render_template('profile.html', user_id = user_id, email = email, local = local)
+    return render_template(
+        'profile.html', 
+        user_id = user_id, 
+        email = email, 
+        local = local, 
+        lat = database.get_user_latitude(user_id), 
+        lng = database.get_user_longitude(user_id), 
+        course = database.get_user_course(user_id),
+        courses = database.get_courses(),
+        is_admin = database.is_admin(user_id)
+        )
 
 if __name__ == '__main__':
     app.run(debug=True)
