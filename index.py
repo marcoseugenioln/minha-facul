@@ -99,7 +99,13 @@ def ajustaComparativo(base, ref):
     ref_lon = ref_lon * fator
     resp = []
     for x in base:
+        logger.info(x)
         _, _, faculdade, _, local_lat, local_lon, cpv, cpv_1, cpv_2 = x
+
+        # gambiarra
+        if cpv_2 == None:
+            cpv_2 = 0
+
         resp.append((faculdade, round(chord_length_sc(local_lon * fator, local_lat * fator, ref_lon, ref_lat), 2), round(cpv, 2), round(cpv_1, 2), round(cpv_2, 2)))
 
     return resp
