@@ -43,7 +43,7 @@
                 <td><input type="text" name="curson" value="{{ curson }}"></td>
                 <td><input type="submit" value="Atualizar" formmethod="post"></td>
                 </form>
-                <td><button onclick="apagar('curso', {{ curso_id }})">Apagar</button></td>
+                <td><button onclick="apagar('curso', {{user_id}}, {{ curso_id }})">Apagar</button></td>
             </tr>
             {% endfor %}
             <tr>
@@ -69,7 +69,7 @@
                 <td><input type="number" name="local_lon" value="{{ local_lon }}" step=".000001"></td>
                 <td><input type="submit" value="Atualizar" formmethod="post"></td>
                 </form>
-                <td><button onclick="apagar('faculdade', {{ faculdade_id }})">Apagar</button></td>
+                <td><button onclick="apagar('faculdade', {{user_id}}, {{ faculdade_id }})">Apagar</button></td>
                 </tr>
             {% endfor %}
             <tr>
@@ -98,7 +98,7 @@
                 <td><input type="number" name="vagas" value="{{ vagas }}" step="1"></td>
                 <td><input type="submit" value="Atualizar" formmethod="post"></td>
                 </form>
-                <td><button onclick="apagar('historico', {{ historico_id }})">Apagar</button></td>
+                <td><button onclick="apagar('historico', {{user_id}}, {{ historico_id }})">Apagar</button></td>
                 </tr>
             {%  endfor %}
         </table>
@@ -120,15 +120,10 @@
                         <td><input type="submit" value="Fazer padrão" formmethod="post"></td>
                     {%  endif %}
                 </form>
-                <td><button onclick="apagar('usuario', {{ usuario_id }})">Apagar</button></td>
+                <td><button onclick="apagar('usuario', {{user_id}}, {{ usuario_id }})">Apagar</button></td>
                 </tr>
             {%  endfor %}
         </table>
-	</div>
-
-	<div id="section5" class="container">
-		<h2>Troca de senha</h2>
-		<p>Falta integracao com troca de senha do MARCOS</p>
 	</div>
 
 	<script>
@@ -152,8 +147,8 @@
 			document.getElementById("btn" + sectionId).classList.add("active");
 		}
 
-        function apagar(blk, id) {
-            lnk = "/" + blk + "/D/" + id
+        function apagar(blk, user_id, id) {
+            lnk = "/" + blk + "/D/" + user_id + "/" + id
             console.log('DATA:' + lnk);
             location.href = lnk;
         }

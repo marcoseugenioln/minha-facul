@@ -13,15 +13,10 @@ handler = logging.FileHandler('site-log.log')
 logger.addHandler(handler)
 
 app = Flask(__name__)
-
 app.secret_key = '1234'
-
-app.config.update(SESSION_COOKIE_SAMESITE="None", SESSION_COOKIE_SECURE=True)
-
 site = Blueprint('site', __name__, template_folder='templates')
 
 database = Database()
-
  
 @app.route("/")
 def index():
@@ -58,7 +53,6 @@ def register():
     is_email_valid = True
 
     courses = database.get_courses()
-    logger.info(courses)
 
     if (request.method == 'POST' and 'email' in request.form and 'password' in request.form and 'password_c' in request.form and 'local_txt' in request.form and 'course' in request.form):
         
@@ -105,7 +99,13 @@ def ajustaComparativo(base, ref):
     ref_lon = ref_lon * fator
     resp = []
     for x in base:
+        logger.info(x)
         _, _, faculdade, _, local_lat, local_lon, cpv, cpv_1, cpv_2 = x
+
+        # gambiarra
+        if cpv_2 == None:
+            cpv_2 = 0
+
         resp.append((faculdade, round(chord_length_sc(local_lon * fator, local_lat * fator, ref_lon, ref_lat), 2), round(cpv, 2), round(cpv_1, 2), round(cpv_2, 2)))
 
     return resp
@@ -161,84 +161,84 @@ def admin(blk, user_id):
 
     return render_template('admin.html', cursos=cursos, faculdades=faculdades, usuarios=usuarios, historico=historico, blk=blk, user_id=user_id)
 
-@app.route('/curso/I', methods=['GET', 'POST'])
-def curso_add():
+@app.route('/curso/I/<user_id>', methods=['GET', 'POST'])
+def curso_add(user_id):
     conn = sqlite3.connect('minhafacul.db')
     conn.execute("INSERT INTO CURSO (CURSO) VALUES (?)", (request.form['curson'], ))
     conn.commit()
-    return redirect(url_for('admin', blk=1))
+    return redirect(url_for('admin', blk=1, user_id = user_id))
 
-@app.route('/curso/D/<id>', methods=['GET', 'POST'])
-def curso_del(id):
+@app.route('/curso/D/<user_id>/<id>', methods=['GET', 'POST'])
+def curso_del(user_id, id):
     conn = sqlite3.connect('minhafacul.db')
     conn.execute("DELETE FROM CURSO WHERE CURSO_ID=?", (id, ))
     conn.commit()
-    return redirect(url_for('admin', blk=1))
+    return redirect(url_for('admin', blk=1, user_id = user_id))
 
 
-@app.route('/curso/U/<id>', methods=['GET', 'POST'])
-def curso_upd(id):
+@app.route('/curso/U/<user_id>/<id>', methods=['GET', 'POST'])
+def curso_upd(user_id, id):
     conn = sqlite3.connect('minhafacul.db')
     conn.execute("UPDATE CURSO SET CURSO=? WHERE CURSO_ID=?", (request.form['curson'], id))
     conn.commit()
-    return redirect(url_for('admin', blk=1))
+    return redirect(url_for('admin', blk=1, user_id = user_id))
 
 
-@app.route('/faculdade/I', methods=['GET', 'POST'])
-def faculdade_add():
+@app.route('/faculdade/I/<user_id>', methods=['GET', 'POST'])
+def faculdade_add(user_id):
     conn = sqlite3.connect('minhafacul.db')
     conn.execute("INSERT INTO FACULDADE (FACULADE, LOCAL_TXT, LOCAL_LAT, LOCAL_LON) VALUES(?, ?, ?, ?)",
                  (request.form['faculaden'], request.form['local_txt'], request.form['local_lat'], request.form['local_lon']))
     conn.commit()
-    return redirect(url_for('admin', blk=2))
+    return redirect(url_for('admin', blk=2, user_id = user_id))
 
 
-@app.route('/faculdade/D/<id>', methods=['GET', 'POST'])
-def faculdade_del(id):
+@app.route('/faculdade/D/<user_id>/<id>', methods=['GET', 'POST'])
+def faculdade_del(user_id, id):
     conn = sqlite3.connect('minhafacul.db')
     conn.execute("DELETE FROM FACULDADE WHERE FACULDADE_ID=?", (id, ))
     conn.commit()
-    return redirect(url_for('admin', blk=2))
+    return redirect(url_for('admin', blk=2, user_id = user_id))
 
-@app.route('/faculdade/U/<id>', methods=['GET', 'POST'])
-def faculdade_upd(id):
+@app.route('/faculdade/U/<user_id>/<id>', methods=['GET', 'POST'])
+def faculdade_upd(user_id, id):
     conn = sqlite3.connect('minhafacul.db')
     conn.execute("UPDATE FACULDADE SET FACULADE=?, LOCAL_TXT=?, LOCAL_LAT=?, LOCAL_LON=? WHERE FACULDADE_ID=?",
                  (request.form['faculaden'], request.form['local_txt'], request.form['local_lat'], request.form['local_lon'], id))
     conn.commit()
-    return redirect(url_for('admin', blk=2))
+    return redirect(url_for('admin', blk=2, user_id = user_id))
 
-@app.route('/historico/D/<id>', methods=['GET', 'POST'])
-def historico_del(id):
+@app.route('/historico/D/<user_id>/<id>', methods=['GET', 'POST'])
+def historico_del(user_id, id):
     conn = sqlite3.connect('minhafacul.db')
     conn.execute("DELETE FROM HISTORICO WHERE HISTORICO_ID=?", (id, ))
     conn.commit()
-    return redirect(url_for('admin', blk=3))
+    return redirect(url_for('admin', blk=3, user_id = user_id))
 
 
-@app.route('/historico/U/<id>', methods=['GET', 'POST'])
-def historico_upd(id):
+@app.route('/historico/U/<user_id>/<id>', methods=['GET', 'POST'])
+def historico_upd(user_id, id):
     conn = sqlite3.connect('minhafacul.db')
     conn.execute("UPDATE HISTORICO SET ANO=?, CANDIDATOS=?, VAGAS=? WHERE HISTORICO_ID=?",
                  (request.form['ano'], request.form['candidatos'], request.form['vagas'], id))
     conn.commit()
-    return redirect(url_for('admin', blk=3))
+    return redirect(url_for('admin', blk=3, user_id = user_id))
 
 
-@app.route('/usuario/D/<id>', methods=['GET', 'POST'])
-def usuario_del(id):
+@app.route('/usuario/D/<user_id>/<id>', methods=['GET', 'POST'])
+def usuario_del(user_id, id):
     conn = sqlite3.connect('minhafacul.db')
     conn.execute("DELETE FROM USUARIO WHERE USUARIO_ID=?", (id, ))
     conn.commit()
-    return redirect(url_for('admin', blk=4))
+    return redirect(url_for('admin', blk=4, user_id = user_id))
 
 
-@app.route('/usuario/U/<id>', methods=['GET', 'POST'])
-def usuario_upd(id):
+@app.route('/usuario/U/<user_id>/<id>', methods=['GET', 'POST'])
+def usuario_upd(user_id, id):
     conn = sqlite3.connect('minhafacul.db')
     conn.execute("UPDATE USUARIO SET ADMINISTRADOR=1-ADMINISTRADOR WHERE USUARIO_ID=?", (id, ))
     conn.commit()
-    return redirect(url_for('admin', blk=4))
+    return redirect(url_for('admin', blk=4, user_id = user_id))
 
 @app.route('/profile/<user_id>', methods=['GET', 'POST'])
 def profile(user_id):
