@@ -13,6 +13,12 @@ class Database():
         self.query = self.connection.cursor()
         logger.info('Database connected.')
 
+        with open('ddl/minhafacul.sql', 'r') as sql_file:
+            sql_script = sql_file.read()
+
+        self.query.executescript(sql_script)
+        self.connection.commit()
+
     def user_exists(self, email: str, password: str) -> bool:
 
         self.query.execute(f"SELECT * FROM USUARIO WHERE EMAIL == '{email}' AND SENHA_SHA256 == '{password}'")
